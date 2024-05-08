@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name=" _ATTENDANCE" Class="AttendanceDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-UD0IQAI\SQLEXPRESS;Initial Catalog= _ATTENDANCE;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AttendanceDB" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.WEB_PROC_INSERT_ATTENDANCE" Method="WEB_PROC_INSERT_ATTENDANCE">
+    <Parameter Name="PIN" Parameter="pIN" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CHECKTIME" Parameter="cHECKTIME" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="CREATED_BY" Parameter="cREATED_BY" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WEB_PROC_GET_ATTENDANCE_RECORD" Method="WEB_PROC_GET_ATTENDANCE_RECORD">
+    <Parameter Name="PIN" Parameter="pIN" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DATEFROM" Parameter="dATEFROM" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="DATETO" Parameter="dATETO" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="WEB_PROC_GET_ATTENDANCE_RECORDResult">
+      <Column Name="PIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TIMEIN" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="TIMEOUT" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.WEB_PROC_GET_SUBORDINATES" Method="WEB_PROC_GET_SUBORDINATES">
+    <Parameter Name="PIN" Parameter="pIN" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="WEB_PROC_GET_SUBORDINATESResult">
+      <Column Name="PIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CHANGE_PASSWORD" Method="CHANGE_PASSWORD">
+    <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PIN" Parameter="pIN" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WEB_PROC_LOGIN" Method="WEB_PROC_LOGIN">
+    <Parameter Name="PIN" Parameter="pIN" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="WEB_PROC_LOGINResult">
+      <Column Name="PIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CNIC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DEPARTMENT_ABBV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.WEB_PROC_GET_PASSWORD" Method="WEB_PROC_GET_PASSWORD">
+    <Parameter Name="PIN" Parameter="pIN" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="WEB_PROC_GET_PASSWORDResult">
+      <Column Name="PIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
